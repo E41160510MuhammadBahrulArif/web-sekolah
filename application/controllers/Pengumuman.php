@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Pengumuman extends CI_Controller {
+class Pengumuman extends CI_Controller
+{
 
 	public function __construct()
 	{
@@ -19,11 +20,11 @@ class Pengumuman extends CI_Controller {
 		//
 		$data['start'] 				= $this->uri->segment(4);
 		$data['title'] 			 	= 'Pengumuman';
-		$data['pengumuman']		 	=	$this->M_Home->get_pengumuman($config['per_page'],$data['start'])->result_array();
+		$data['pengumuman']		 	=	$this->M_Home->get_pengumuman($config['per_page'], $data['start'])->result_array();
 		########### ============= ##############
-		$this->load->view('layout/frontend/header',$data);
-		$this->load->view('layout/frontend/navbar',$data);
-		$this->load->view('frontend/pengumuman',$data);
+		$this->load->view('layout/frontend/header', $data);
+		$this->load->view('layout/frontend/navbar', $data);
+		$this->load->view('frontend/pengumuman', $data);
 		$this->load->view('layout/frontend/footer');
 	}
 
@@ -33,7 +34,6 @@ class Pengumuman extends CI_Controller {
 		$data = $this->M_Home->get_pengumuman_by_id($id)->row_array();
 		echo json_encode($data);
 	}
-
 }
 
 /* End of file Pengumuman.php */

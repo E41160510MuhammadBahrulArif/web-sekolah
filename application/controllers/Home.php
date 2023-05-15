@@ -12,6 +12,7 @@ class Home extends CI_Controller
 
 	public function index()
 	{
+
 		$data['title'] = 'Home';
 		$data['all_jurusan'] 		= $this->M_Home->get_info_jurusan();
 		$data['new_pengumuman'] 	= $this->db->order_by('created_at', 'DESC')->get('tbl_pengumuman', 3)->result_array();
